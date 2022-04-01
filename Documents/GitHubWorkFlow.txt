@@ -1,7 +1,7 @@
 Working with GitHub
  
 
-Our procedure:
+Our working procedure:
 
 1 - Choose or create a card in To-Do list (Trelo).
 

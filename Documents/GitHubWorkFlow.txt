@@ -1,0 +1,56 @@
+Working with GitHub
+ 
+
+Our procedure:
+
+1 - Choose or create a card in To-Do list (Trelo).
+
+2 - Move the card to doing and assign it to the person who will be working on it. If choosing a card already in the doing list, modify the assignment for the current developer. 
+
+3 - insert the next number in the list to that task. Do not change the number assigned if working in a doing task previously assigned to another developer.
+
+4 - Create an issue in the git hub for that developer including the number of the task, its name and the package.
+
+5 - Follow the following steps: 
+
+https://docs.github.com/en/get-started/quickstart/github-flow
+
+Git Hub workflow. (GitHub recommends)
+
+- Create Branch
+- Make changes
+- Create a pull request
+- Address review comment
+- Merge your pull request
+- Delete you branch
+
+6 - if work is ready and there is no need to present to de team: move card to done. If needs team opinion/approval move to waiting approval. If the work is not yet done, let it in the doing list. 
+
+Remarks 1 - we will be working over de "develop" branch. The "main branch will be used only for production ready features
+Remarks 2 - on your code remember to use comments before the block you are woking for.
+	//Brief description of what the block does
+	//Kanban Task (include different tasks. That way we can track the work done and solve doubts with the respective developer).
+	//Name and Date Time of last developer working on that block
+
+
+Commands
+
+$ git branch x-my-branch # This is an example name
+
+$ git checkout develop
+
+$ git pull
+
+$ git checkout x-my-branch
+
+$ git merge develop
+
+# You make some changes on the files of the x-my-branch branch
+
+$ git add -A
+
+$ git commit -m "<a message>"
+
+$ git push
+
+Reference: https://www.freecodecamp.org/news/how-to-use-git-and-github-in-a-team-like-a-pro/

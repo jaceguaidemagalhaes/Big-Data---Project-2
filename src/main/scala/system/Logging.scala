@@ -19,7 +19,6 @@ class Logging{
 
   //val user = "test log" // user variable to test reasons comment for test.
   //val user = main.UN// uncomment for production
-  //var user = ""
   var sysDate = ""
   var sysTime = ""
   var sysTimeZone = ""

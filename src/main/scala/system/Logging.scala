@@ -111,7 +111,6 @@ class Logging{
         val currentDate = Map(("Date","0"),("Time","0"),("TimeZone","Error"))
         //return currentDate
     }
-    //return hourFormat.format(now)
   //end GetCurrentTime
   }
 

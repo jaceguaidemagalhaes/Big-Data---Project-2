@@ -4,6 +4,7 @@ target/
 project/
 metastore_db/
 user/
+input/
 
 *.idea/
 *.bsp

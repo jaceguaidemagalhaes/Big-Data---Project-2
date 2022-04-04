@@ -50,14 +50,15 @@ object UI extends App {
     var input = 0
     while (input != 7) {
       println(menu)
+      println("Query options are currently disabled until COVID queries are made.")
       input = StdIn.readInt()
       input match {
-        case 1 => queryHighestPeak(spark)
+        /*case 1 => queryHighestPeak(spark)
         case 2 => queryLowestPeak(spark)
         case 3 => queryCurrentHighest(spark)
         case 4 => queryHighestInX(spark)
         case 5 => queryHighestPlayerMonth(spark)
-        case 6 => queryTopAverageInGame(spark)
+        case 6 => queryTopAverageInGame(spark)*/
         case 7 => println("Exiting...")
         case _ => println("Invalid input!")
       }

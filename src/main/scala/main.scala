@@ -22,15 +22,11 @@ object main extends App {
 
   //spark.sql("DROP TABLE IF EXISTS steamData")
 
-  spark.sql("DROP TABLE IF EXISTS userAccounts")
+  //spark.sql("DROP TABLE IF EXISTS userAccounts")
   spark.sql("DROP TABLE IF EXISTS usersTemp")
   val dfAccounts = spark.sql("create table IF NOT EXISTS userAccounts(username STRING, password STRING, permissionType STRING) " +
     "stored as orc")
   val salt = "$2a$10$zLDctXGMbL/R6YkgRA7Nq."
-  createAccountHidden("jack", "test", "admin", spark, salt)
-  createAccountHidden("ERiC", "test", "basic", spark, salt)
-  createAccountHidden("Nick", "test", "basic", spark, salt)
-
   //</editor-fold>
 
   var UN = ""
@@ -41,7 +37,7 @@ object main extends App {
        |1. Login
        |2. Create New Account
        |3. Quit
-       |""".stripMargin
+       |""".stripMargin //main menu for user
   lazy val aMenu =
     s"""
        |Please choose an option:
@@ -50,7 +46,7 @@ object main extends App {
        |3. Change Username
        |4. Change Password
        |5. Log Out
-       |""".stripMargin
+       |""".stripMargin //admin menu options, change this and admin menu function in UI.scala if needed.
   lazy val bMenu =
     s"""
        |Please choose an option:
@@ -58,7 +54,7 @@ object main extends App {
        |2. Change Username
        |3. Change Password
        |4. Log Out
-       |""".stripMargin
+       |""".stripMargin //basic menu options, change this and basic menu function in UI.scala if needed.
   lazy val qMenu =
     s"""
        |Please choose an option:
@@ -69,7 +65,7 @@ object main extends App {
        |5. Top 10 Month-Year that had the highest player count across Steam
        |6. Top 10 Month-Year with the highest average players for X Game
        |7. Exit
-       |""".stripMargin
+       |""".stripMargin //query menu options, change this and query menu function in UI.scala when actual queries are made
   lazy val mMenu =
     s"""
        |Please choose an option:
@@ -77,9 +73,9 @@ object main extends App {
        |2. Show Users
        |3. Update Privilege of User
        |4. Exit
-       |""".stripMargin
+       |""".stripMargin //manage menu options, change this and manage menu function in UI.scala if needed.
 
-  println(s"${BOLD}Welcome to the Steam Player Data Analyzer, where the top 100 Steam Games from 2012-2021 are queried!$RESET\n")
+  println(s"${BOLD}Welcome to the COVID data analyzer!$RESET\n") //only prints when program is started
   breakable {
     while (input1 != 3) {
       println(menu1)
@@ -92,7 +88,7 @@ object main extends App {
       }
     }
   }
-  println("Thank you for using the Steam Player Data Analyzer! Have a great day!")
+  println("Thank you for using the COVID data analyzer! Have a great day!")
 
   def login (spark: SparkSession = spark) : Unit = {
     UN = StdIn.readLine("Please enter your username:\n")

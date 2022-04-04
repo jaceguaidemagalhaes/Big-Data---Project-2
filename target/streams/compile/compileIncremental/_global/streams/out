@@ -1,0 +1,53 @@
+[debug] [zinc] IncrementalCompile -----------
+[debug] IncrementalCompile.incrementalCompile
+[debug] previous = Stamps for: 0 products, 0 sources, 0 libraries
+[debug] current source = Set(${BASE}/src/main/scala/HelloWorld.scala)
+[debug] > initialChanges = InitialChanges(Changes(added = Set(${BASE}/src/main/scala/HelloWorld.scala), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] Full compilation, no sources in previous analysis.
+[debug] all 1 sources are invalidated
+[debug] Initial set of included nodes: 
+[debug] Recompiling all sources: number of invalidated sources > 50.0% of all sources
+[debug] compilation cycle 1
+[info] compiling 1 Scala source to C:\Users\Jack\IdeaProjects\Project1\target\scala-2.12\classes ...
+[debug] Getting org.scala-sbt:compiler-bridge_2.12:1.6.0:compile for Scala 2.12.0
+[info] Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.0. Compiling...
+[debug] Creating plain compiler interface for 2.12.0.
+[debug]   > Arguments: 
+[debug] 	-d
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_4865bf9
+[debug] 	-nowarn
+[debug] 	-bootclasspath
+[debug] 	C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\resources.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\rt.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\sunrsasign.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\jsse.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\jce.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\charsets.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\lib\jfr.jar;C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\jre\classes;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.12.0\scala-library-2.12.0.jar
+[debug] 	-classpath
+[debug] 	C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-interface\1.6.0\compiler-interface-1.6.0.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-interface\1.6.0\util-interface-1.6.0.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-bridge_2.12\1.6.0\compiler-bridge_2.12-1.6.0-sources.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-compiler\2.12.0\scala-compiler-2.12.0.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-reflect\2.12.0\scala-reflect-2.12.0.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-xml_2.12\1.0.5\scala-xml_2.12-1.0.5.jar;C:\Users\Jack\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\jline\jline\2.14.1\jline-2.14.1.jar
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\scala\ZincCompat.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\API.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\AbstractZincFile.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\Analyzer.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\CallbackGlobal.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\ClassName.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\Compat.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\CompilerBridge.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\ConsoleBridge.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\DelegatingReporter.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\Dependency.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\ExtractAPI.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\ExtractUsedNames.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\GlobalHelpers.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\InteractiveConsoleBridge.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\InteractiveConsoleFactoryBridge.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\InteractiveConsoleHelper.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\InteractiveConsoleResponse.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\JarUtils.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\JavaUtils.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\LocalToNonLocalClass.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\LocateClassFile.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\Log.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\Message.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\PlainNioFile.scala
+[debug] 	C:\Users\Jack\AppData\Local\Temp\sbt_a78e78fb\xsbt\ScaladocBridge.scala
+[debug]       
+[info] Attempting to fetch org.scala-sbt:compiler-bridge_2.12:1.6.0.
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[error] (Compile / compileIncremental) Error compiling the sbt component 'compiler-bridge_2.12'

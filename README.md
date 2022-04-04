@@ -14,5 +14,5 @@ upon for every spark session needed. All user interaction comes from the console
 
 - Rick click main and change modify run configuration working directory to project input
 
-![](modify%20run%20config.PNG)
-![](check.PNG)
+![](images/modify%20run%20config.PNG)
+![](images/check.PNG)

@@ -1,38 +1,21 @@
-# Big-Data-Project-2
+# User Interface Menu
+Created a user menu (as well as a startup menu) that implements all CRUD operations and have a login system with two permission types (Admin and Basic). Passwords 
+area encrypted and the options for querying data will be changed according to the project's database. An easy to access spark connection class is created and called 
+upon for every spark session needed. All user interaction comes from the console application
 
-Covid-19 (Spark, Yarn, HDFS, SBT, Scala, Git, Tableau)
+## About
+Jack Nguyen and Newyork Her created a menu for querying Project 2 data and also implemented a login system by creating a user menu. This menu has different permission types and an encrypted password
 
-This is a template, to be filled out by each group and placed in their git repo titled README.md
-Requirements:
-- Create a Spark Application that processes COVID data
-- Your project 2 pitch should involve some analysis of COVID data. This is the central feature. 
-- Send me a link to a git repo, have someone in the group manage git (but they can ask for help from me)
-- Produce one or more .jar files for your analysis. Then you can run application using spark-submit (in Ubuntu).
-- 10 queries per group
-- find a trend
-- implement logging (with Spark)
-- use Zeppelin (graphics and visuals) for showing trends and data analysis
-- Implement Agile Scrum methodology for project work (choose Scrum Master who will serve as team lead, all communication with me funneled through this associate, and have daily scrum meetings, by end of day report blockers)
+## Setting up
+- First make sure your jdk is on 1.8.0 by going to File then click Project Structure
 
-### Presentations
-- Bring a simple slide deck providing an overview of your results. You should present your results, a high level overview of the process used to achieve those results, and any assumptions and simplifications you made on the way to those results.
-- I may ask you to run an analysis on the day of the presentation, so be prepared to do so.
-- We'll have 20 minutes per group, so make sure your presentation can be covered in that time, focusing on the parts of your analysis you find most interesting.
-- Include a link to your github repository at the end of your slides
+![](images/setting%20up%20jdk.PNG)
 
+- Also be sure to delete the metastore data and spark warehouse files under input
 
-### Technologies
+![](images/delete%20metadata.PNG)
 
-- Apache Spark
-- Spark SQL
-- YARN
-- HDFS and/or S3
-- SBT
-- Scala 2.12.10
-- Git + GitHub
-- Zeppelin (or Tableau or other visualization software)
+- Rick click main and change modify run configuration working directory to project input
 
-
-### Due Date
-- Presentations will take place on Monday, 4/13
-- Send Project proposal with MVP clearly labeled with 2-3 stretch goals by end of week, 4/1
+![](images/modify%20run%20config.PNG)
+![](images/check.PNG)

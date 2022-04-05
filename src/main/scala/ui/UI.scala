@@ -1,15 +1,16 @@
-import org.apache.spark.sql.SparkSession
-import scala.Console._
-import queries._
-import CRUD._
-import scala.io.StdIn
-import scala.util.control.Breaks._
-import main.{aMenu,bMenu,qMenu,mMenu}
+package ui
 
+import org.apache.spark.sql.SparkSession
+import ui.main.{aMenu, bMenu, mMenu, qMenu}
+import database.CRUD._
+
+import scala.Console.println
+import scala.io.StdIn
+import scala.util.control.Breaks.{break, breakable}
 
 object UI extends App {
 
-  def adminMenu (UN: String, permission: String, menu: String = aMenu, spark: SparkSession, salt: String) : Unit = {
+  def adminMenu(UN: String, permission: String, menu: String = aMenu, spark: SparkSession, salt: String): Unit = {
     var input = 0
     println("Welcome to the Admin Menu. Please enter a valid number to select an option:")
     breakable {
@@ -28,7 +29,7 @@ object UI extends App {
     }
   }
 
-  def basicMenu (UN:String, permission: String, menu: String = bMenu, spark: SparkSession, salt: String) : Unit = {
+  def basicMenu(UN: String, permission: String, menu: String = bMenu, spark: SparkSession, salt: String): Unit = {
     println("Welcome to the User Menu. Please enter a valid number to select an option:")
     var input = 0
     breakable {
@@ -46,7 +47,7 @@ object UI extends App {
     }
   }
 
-  def queryMenu (menu: String, spark: SparkSession) : Unit = {
+  def queryMenu(menu: String, spark: SparkSession): Unit = {
     var input = 0
     while (input != 7) {
       println(menu)
@@ -65,7 +66,7 @@ object UI extends App {
     }
   }
 
-  def manageUserMenu (menu: String, spark: SparkSession, salt: String) : Unit = {
+  def manageUserMenu(menu: String, spark: SparkSession, salt: String): Unit = {
     var input = 0
     while (input != 4) {
       println(menu)

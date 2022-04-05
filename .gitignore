@@ -5,6 +5,7 @@ project/
 metastore_db/
 user/
 input/
+spark-warehouse/
 
 *.idea/
 *.bsp

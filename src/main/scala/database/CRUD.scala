@@ -1,10 +1,13 @@
+package database
+
 import org.apache.spark.sql.SparkSession
-import scala.Console._
-import scala.io.StdIn
 import com.github.t3hnar.bcrypt._
 
-object CRUD extends App{
-  def createAccountHidden(UN: String, PW: String, permission: String, spark: SparkSession, salt: String) : Unit = {
+import scala.Console.{BOLD, RESET, println}
+import scala.io.StdIn
+
+object CRUD extends App {
+  def createAccountHidden(UN: String, PW: String, permission: String, spark: SparkSession, salt: String): Unit = {
     val checkIfUnique = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
     if (checkIfUnique.isEmpty) {
       spark.sql(s"insert into userAccounts VALUES ('$UN','${PW.bcryptBounded(salt)}','$permission')")
@@ -15,7 +18,7 @@ object CRUD extends App{
     }
   }
 
-  def createAccount(permission: String, spark: SparkSession, salt: String) : Unit = {
+  def createAccount(permission: String, spark: SparkSession, salt: String): Unit = {
     val UN = StdIn.readLine("Please enter a unique username:\n")
     val checkIfUnique = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
     if (checkIfUnique.isEmpty) {
@@ -30,12 +33,12 @@ object CRUD extends App{
     }
   }
 
-  def readAccounts(spark : SparkSession) : Unit = {
+  def readAccounts(spark: SparkSession): Unit = {
     spark.sql("select username as Username, password as Password, permissionType as Privileges from userAccounts" +
       " order by privileges, Username").show(false)
   }
 
-  def updatePassword(UN: String, permission: String, spark: SparkSession, salt: String) : Unit = {
+  def updatePassword(UN: String, permission: String, spark: SparkSession, salt: String): Unit = {
     val oldPW = StdIn.readLine("Please enter your current password:\n")
     val checkPW = spark.sql(s"select password from userAccounts " +
       s"where lower(username) = '${UN.toLowerCase}' and password = '${oldPW.bcryptBounded(salt)}'")
@@ -55,7 +58,7 @@ object CRUD extends App{
     }
   }
 
-  def updateUserName(UN: String, permission: String, spark: SparkSession, salt: String) : Unit = {
+  def updateUserName(UN: String, permission: String, spark: SparkSession, salt: String): Unit = {
     val PW = StdIn.readLine("Please enter your current password:\n")
     val checkPW = spark.sql(s"select password from userAccounts " +
       s"where lower(username) = '${UN.toLowerCase}' and password = '${PW.bcryptBounded(salt)}'")
@@ -73,9 +76,11 @@ object CRUD extends App{
       spark.sql(s"insert into table userAccounts VALUES ('$newUN','${PW.bcryptBounded(salt)}','$permission')")
       println(s"${BOLD}Username has been updated to $newUN!$RESET")
       spark.sql(s"select * from userAccounts where lower(username) = '${newUN.toLowerCase}'").show(false)
-      def setUsername (oldUser: String, newUser: String) : Unit = {
+
+      def setUsername(oldUser: String, newUser: String): Unit = {
         val oldUser = newUser
       }
+
       setUsername(UN, newUN)
     }
     else {
@@ -84,7 +89,7 @@ object CRUD extends App{
     }
   }
 
-  def updatePrivilege(permission: String, spark: SparkSession, salt: String) : Unit = {
+  def updatePrivilege(permission: String, spark: SparkSession, salt: String): Unit = {
     readAccounts(spark)
     var UN = StdIn.readLine("Please enter a valid username: \n")
     var checkIfUnique = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
@@ -105,7 +110,7 @@ object CRUD extends App{
     spark.sql(s"select * from userAccounts where lower(username) = '${UN.toLowerCase}'").show(false)
   }
 
-  def deleteUser(spark: SparkSession) : Unit = {
+  def deleteUser(spark: SparkSession): Unit = {
     readAccounts(spark)
     var UN = StdIn.readLine("Please enter the user you wish to delete:\n")
     var checkIfExist = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
@@ -121,7 +126,7 @@ object CRUD extends App{
     readAccounts(spark)
   }
 
-  def createUserAccountsCopy(spark: SparkSession, table_name : String = "usersTemp") : Unit = {
+  def createUserAccountsCopy(spark: SparkSession, table_name: String = "usersTemp"): Unit = {
     spark.sql(s"create table if not exists $table_name(username STRING, password STRING, permissionType STRING)" +
       s"stored as orc")
   }

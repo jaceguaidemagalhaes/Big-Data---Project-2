@@ -1,11 +1,14 @@
-import org.apache.spark.sql.SparkSession
-import scala.Console._
-import CRUD._
-import scala.io.StdIn
-import scala.util.control.Breaks._
-import com.github.t3hnar.bcrypt._
+package ui
+
 import database.SparkConnection
-import UI._
+import database.CRUD.createAccount
+import org.apache.spark.sql.SparkSession
+import ui.UI.{adminMenu, basicMenu}
+
+import scala.Console.{BOLD, RESET, println}
+import scala.io.StdIn
+import scala.util.control.Breaks.breakable
+import com.github.t3hnar.bcrypt._
 
 object main extends App {
 
@@ -88,7 +91,7 @@ object main extends App {
   }
   println("Thank you for using the COVID data analyzer! Have a great day!")
 
-  def login (spark: SparkSession = spark) : Unit = {
+  def login(spark: SparkSession = spark): Unit = {
     UN = StdIn.readLine("Please enter your username:\n")
     var checkIfExist = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
     while (checkIfExist.isEmpty) {

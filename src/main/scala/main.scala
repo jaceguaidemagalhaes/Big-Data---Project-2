@@ -9,7 +9,7 @@ import UI._
 
 object main extends App {
 
-  //<editor-fold desc="Spark Session = spark, SparkContext = sc">
+  //<editor-fold desc="Spark Session = spark">
 
   val spark = SparkConnection.sparkConnect()
   spark.sql("set hive.exec.dynamic.partition=true")
@@ -19,8 +19,6 @@ object main extends App {
   //</editor-fold>
 
   //<editor-fold desc="steamData and userAccounts table creation">
-
-  //spark.sql("DROP TABLE IF EXISTS steamData")
 
   //spark.sql("DROP TABLE IF EXISTS userAccounts")
   spark.sql("DROP TABLE IF EXISTS usersTemp")

@@ -3,13 +3,19 @@ package ui
 import org.apache.spark.sql.SparkSession
 import ui.main.{aMenu, bMenu, mMenu, qMenu}
 import database.CRUD._
+import system.Logging
 
 import scala.Console.println
 import scala.io.StdIn
 import scala.util.control.Breaks.{break, breakable}
 
 object UI extends App {
-
+  //create object for manage logging
+  // jaceguai 4/05/2022 4:51 Est
+  val logging = new Logging()
+  //use the following line where you want to log activities
+  //just replace Message to log with your message
+  //logging.insertLog("Message to log", this.getClass.getSimpleName.toLowerCase())
   def adminMenu(UN: String, permission: String, menu: String = aMenu, spark: SparkSession, salt: String): Unit = {
     var input = 0
     println("Welcome to the Admin Menu. Please enter a valid number to select an option:")
@@ -23,6 +29,7 @@ object UI extends App {
           case 3 => updateUserName(UN, permission, spark, salt); println("Logging out to update username in session..."); break()
           case 4 => updatePassword(UN, permission, spark, salt)
           case 5 => println("Logging out...")
+          case 6 => logging.listLog()
           case _ => println("Invalid input!")
         }
       }

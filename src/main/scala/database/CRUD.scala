@@ -5,8 +5,17 @@ import com.github.t3hnar.bcrypt._
 
 import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn
+import system.Logging
 
 object CRUD extends App {
+
+  //create object for manage logging
+  // jaceguai 4/05/2022 4:51 Est
+  //val logging = new Logging()
+  //use the following line where you want to log activities
+  //just replace Message to log with your message
+  //logging.insertLog("Message to log", this.getClass.getSimpleName.toLowerCase())
+
   def createAccountHidden(UN: String, PW: String, permission: String, spark: SparkSession, salt: String): Unit = {
     val checkIfUnique = spark.sql(s"select username from userAccounts where lower(username) = '${UN.toLowerCase}'")
     if (checkIfUnique.isEmpty) {
@@ -24,8 +33,13 @@ object CRUD extends App {
     if (checkIfUnique.isEmpty) {
       val PW = StdIn.readLine("Please enter a strong password:\n")
       spark.sql(s"insert into userAccounts VALUES ('$UN','${PW.bcryptBounded(salt)}','$permission')")
-      if (permission == "basic")
+      if (permission == "basic") {
         println(s"Account $UN created!")
+        //log activitie
+        //jaceguai 4/05/2022
+        val logging = new Logging()
+        logging.insertLog("Create account", this.getClass.getSimpleName.toLowerCase())
+      }
     }
     else {
       println(s"$UN has already been taken!\n")
@@ -51,7 +65,12 @@ object CRUD extends App {
       spark.sql(s"insert into table userAccounts VALUES ('$UN','${newPW.bcryptBounded(salt)}','$permission')") //bug: will change UN to whatever was passed into function, shouldn't be an issue when using current username
       println(s"${BOLD}Password has been updated to $newPW!$RESET")
       spark.sql(s"select * from userAccounts where lower(username) = '${UN.toLowerCase}'").show(false)
+      //log activitie
+      //jaceguai 4/05/2022
+      val logging = new Logging()
+      logging.insertLog("Update password", this.getClass.getSimpleName.toLowerCase())
     }
+
     else {
       println(s"$oldPW is incorrect!\n")
       updatePassword(UN, permission, spark, salt)
@@ -76,7 +95,10 @@ object CRUD extends App {
       spark.sql(s"insert into table userAccounts VALUES ('$newUN','${PW.bcryptBounded(salt)}','$permission')")
       println(s"${BOLD}Username has been updated to $newUN!$RESET")
       spark.sql(s"select * from userAccounts where lower(username) = '${newUN.toLowerCase}'").show(false)
-
+      //log activitie
+      //jaceguai 4/05/2022
+      val logging = new Logging()
+      logging.insertLog("Update username", this.getClass.getSimpleName.toLowerCase())
       def setUsername(oldUser: String, newUser: String): Unit = {
         val oldUser = newUser
       }
@@ -124,6 +146,10 @@ object CRUD extends App {
     spark.sql("alter table usersTemp rename to userAccounts")
     println(s"${BOLD}$UN has been deleted successfully!$RESET")
     readAccounts(spark)
+    //log activitie
+    //jaceguai 4/05/2022
+    val logging = new Logging()
+    logging.insertLog("Delete user", this.getClass.getSimpleName.toLowerCase())
   }
 
   def createUserAccountsCopy(spark: SparkSession, table_name: String = "usersTemp"): Unit = {

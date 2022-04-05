@@ -9,10 +9,13 @@ import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn
 import scala.util.control.Breaks.breakable
 import com.github.t3hnar.bcrypt._
+import system.Logging
 
 object main extends App {
 
   //<editor-fold desc="Spark Session = spark">
+
+
 
   val spark = SparkConnection.sparkConnect()
   spark.sql("set hive.exec.dynamic.partition=true")
@@ -29,6 +32,13 @@ object main extends App {
     "stored as orc")
   val salt = "$2a$10$zLDctXGMbL/R6YkgRA7Nq."
   //</editor-fold>
+
+  //create object for manage logging
+  // jaceguai 4/05/2022 4:51 Est
+  //val logging = new Logging()
+  //use the following line where you want to log activities
+  //just replace Message to log with your message
+  //logging.insertLog("Message to log", this.getClass.getSimpleName.toLowerCase())
 
   var UN = ""
   var input1 = 0
@@ -47,6 +57,7 @@ object main extends App {
        |3. Change Username
        |4. Change Password
        |5. Log Out
+       |6. List Log
        |""".stripMargin //admin menu options, change this and admin menu function in UI.scala if needed.
   lazy val bMenu =
     s"""
@@ -106,6 +117,11 @@ object main extends App {
       checkPW = spark.sql(s"select password from userAccounts " +
         s"where lower(username) = '${UN.toLowerCase}' and password = '${PW.bcryptBounded(salt)}'")
     }
+    //log user login
+    //jaceguai 4/05/2022
+    val logging = new Logging()
+    logging.insertLog("User logged",this.getClass.getSimpleName.toLowerCase())
+
     val permission = spark.sql(s"select permissionType from userAccounts " +
       s"where lower(username) = '${UN.toLowerCase}' and password = '${PW.bcryptBounded(salt)}'")
     val checkPermission = permission.head().getString(0)

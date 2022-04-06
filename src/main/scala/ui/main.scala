@@ -14,9 +14,7 @@ import system.Logging
 object main extends App {
 
   //<editor-fold desc="Spark Session = spark">
-
-
-
+  
   val spark = SparkConnection.sparkConnect()
   spark.sql("set hive.exec.dynamic.partition=true")
   spark.sql("Set hive.exec.dynamic.partition.mode=nonstrict")
@@ -26,7 +24,7 @@ object main extends App {
 
   //<editor-fold desc="userAccounts table creation, salt and default admin check">
 
-  //spark.sql("DROP TABLE IF EXISTS userAccounts")
+  spark.sql("DROP TABLE IF EXISTS userAccounts")
   spark.sql("DROP TABLE IF EXISTS usersTemp")
   val dfAccounts = spark.sql("create table IF NOT EXISTS userAccounts(username STRING, password STRING, permissionType STRING) " +
     "stored as orc")

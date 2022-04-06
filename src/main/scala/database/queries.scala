@@ -2,46 +2,57 @@ package database
 
 import org.apache.spark.sql.SparkSession
 
-import scala.io.StdIn
+import scala.io.StdIn._
+
 
 object queries extends App {
+  //These are all example queries for our Project. We may change them as we see fit when covid table is finished and cleaned up
+  //1. What are the top 10 countries with greatest amount of deaths?
   def queryHighestPeak(spark: SparkSession): Unit = {
-    println("Highest player count:")
-    spark.sql("select name as Game, peak_players as Players, month_year from steamData " +
-      "where peak_players = (select(max(peak_players)) from steamData)").show()
+    println("Top 10 countries with greatest amount of deaths:")
+    spark.sql("SELECT Country, Death FROM table_name ORDER BY Death DESC").show(10, false)
   }
+  //2. Select percentage of population confirmed, dead, and recovered
 
-  def queryLowestPeak(spark: SparkSession): Unit = {
-    println("Lowest player count:")
-    spark.sql("select distinct name as Game, peak_players as Players, month_year from steamData " +
-      "where peak_players = (select(min(peak_players)) from steamData where peak_players > 10000)").show(1)
+  //3. Cumulative average confirmed, deaths, and recovers
+  def queryAvg(spark: SparkSession): Unit = {
+    println("Average confirmed, deaths, and recovers:")
+    spark.sql("SELECT ROUND(AVG(confirmed),0), ROUND(AVG(Deaths),0), ROUND(AVG(Recovers),0) FROM table_name").show(10, false)
   }
-
-  def queryCurrentHighest(spark: SparkSession): Unit = {
-    println("Games with latest highest player count (September 2021):")
-    spark.sql("select name as Game, peak_players as Players from steamData " +
-      "where month_year = 'September 2021' " +
-      "order by peak_players desc").show(10, false)
+  //4. When was the peak of mortality rate of the pandemic?
+  def queryHighestDeath(spark: SparkSession): Unit = {
+    println("When was the peak of mortality rate of the pandemic?")
+    spark.sql("SELECT Date, MAX(Death) as Mortality rate from table_name ORDER BY Date").show(10, false)
   }
+  //5. What are the correlation between deaths and population?
 
-  def queryHighestInX(spark: SparkSession): Unit = {
-    println(s"Please enter a valid month and year (Ex. \'September 2021\'): ")
-    val input = StdIn.readLine()
-    println(s"\nGames with highest player count in $input:")
-    spark.sql("select name as Game, peak_players as Players, month_year as Date from steamData " +
-      s"where month_year = '$input' order by peak_players desc").show(10, false)
+  //6. What is the average recovered rate by countries?
+  def queryAverageRecoveredRate(spark: SparkSession): Unit = {
+    println("What is the average recovered rate by countries?")
+    spark.sql("SELECT Country, ROUND(AVG(Recovered),0) AS Recovered rate FROM table_name").show(10, false)
   }
+  //7. Confirmed by day, country, and states (when applicable)
 
-  def queryHighestPlayerMonth(spark: SparkSession): Unit = {
-    println("Dates with the highest total player count across all games:")
-    spark.sql("select month_year as Date, sum(peak_players) as Total_Players from steamData group by month_year order by Total_Players desc").show(10, false)
+  //8. Total confirmed, death, and recover
+
+  //9. Confirmed spread speed for determined time and country
+  def queryConSpreadSpeed(spark: SparkSession): Unit = {
+    println("Confirmed spread speed for determined time and country")
+    val country = readLine("Type in the country: ")
+    // the dates can be changed according to the table
+    val startDate = readLine("Start date (yyyy/mm/dd): ")
+    val endDate = readLine("End date (yyyy/mm/dd): ")
+    spark.sql(s"SELECT Country, ROUND(AVG(confirmed),0) AS Avg Confirmed Per Day FROM table_name " +
+      s"WHERE (Date BETWEEN $startDate AND $endDate) AND (Country = '$country')").show(10,false)
   }
-
-  def queryTopAverageInGame(spark: SparkSession): Unit = {
-    println(s"Please enter a valid game name (Ex. \'Destiny 2\'): ")
-    val input = StdIn.readLine()
-    println(s"Highest Average Player Count for $input:")
-    spark.sql("select ceil(Avg_players) as Average, month_year as Date from steamData " +
-      s"where name = '$input' order by Avg_players desc").show(10, false)
+  //10. Death spread speed for determined time and country
+  def queryDeathSpreadSpeed(spark: SparkSession): Unit = {
+    println("Death spread speed for determined time and country")
+    val country = readLine("Type in the country: ")
+    // the dates can be changed according to the table
+    val startDate = readLine("Start date (yyyy/mm/dd): ")
+    val endDate = readLine("End date (yyyy/mm/dd): ")
+    spark.sql(s"SELECT Country, ROUND(AVG(Death),0) AS Avg Death Per Day FROM table_name " +
+      s"WHERE (Date BETWEEN $startDate AND $endDate) AND (Country = '$country')").show(10, false)
   }
 }

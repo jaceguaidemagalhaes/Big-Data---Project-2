@@ -76,13 +76,17 @@ object main extends App {
   lazy val qMenu =
     s"""
        |Please choose an option:
-       |1. Game with Highest Player Count
-       |2. Game with Lowest Player Count (at least 10000 players)
-       |3. Top 10 Games with Current Highest Player Count (September 2021)
-       |4. Top 10 Games with Highest Players in X Month and Year
-       |5. Top 10 Month-Year that had the highest player count across Steam
-       |6. Top 10 Month-Year with the highest average players for X Game
-       |7. Exit
+       |1. What are the top 10 countries with greatest amount of deaths?
+       |2. Select percentage of population confirmed, dead, and recovered
+       |3. Cumulative average confirmed, deaths, and recovers
+       |4. When was the peak of mortality rate of the pandemic?
+       |5. What are the correlation between deaths and population?
+       |6. What is the average recovered rate by countries?
+       |7. Confirmed by day, country, and states (when applicable)
+       |8. Total confirmed, death, and recover
+       |9. Confirmed spread speed for determined time and country
+       |10. Death spread speed for determined time and country
+       |11. Exit
        |""".stripMargin //query menu options, change this and query menu function in UI.scala when actual queries are made
   lazy val mMenu =
     s"""

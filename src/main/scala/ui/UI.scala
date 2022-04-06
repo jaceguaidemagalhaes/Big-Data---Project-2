@@ -62,12 +62,16 @@ object UI extends App {
       input = StdIn.readInt()
       input match {
         /*case 1 => queryHighestPeak(spark)
-        case 2 => queryLowestPeak(spark)
-        case 3 => queryCurrentHighest(spark)
-        case 4 => queryHighestInX(spark)
-        case 5 => queryHighestPlayerMonth(spark)
-        case 6 => queryTopAverageInGame(spark)*/
-        case 7 => println("Exiting...")
+        case 2 =>
+        case 3 => queryAvg(spark)
+        case 4 => queryHighestDeath(spark)
+        case 5 =>
+        case 6 => queryAverageRecoveredRate(spark)
+        case 7 =>
+        case 8 =>
+        case 9 => queryConSpreadSpeed(spark)
+        case 10 => queryDeathSpreadSpeed(spark)*/
+        case 11 => println("Exiting...")
         case _ => println("Invalid input!")
       }
     }

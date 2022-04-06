@@ -41,7 +41,8 @@ object main extends App {
 
   //create object for manage logging
   // jaceguai 4/05/2022 4:51 Est
-  //val logging = new Logging()
+  val logging = new Logging()
+  logging.createSysLog()
   //use the following line where you want to log activities
   //just replace Message to log with your message
   //logging.insertLog("Message to log", this.getClass.getSimpleName.toLowerCase())

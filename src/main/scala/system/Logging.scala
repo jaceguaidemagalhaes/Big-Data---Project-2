@@ -72,7 +72,7 @@ class Logging{
     println("Droping table syslog....")
     spark.sql("drop table if exists syslog")
     println("Creating table syslog....")
-    spark.sql("create table syslog(username string, classname string, date string," +
+    spark.sql("create table if not exists syslog(username string, classname string, date string," +
       "time string, timezone string, operation string)"+
       " row format delimited fields terminated by ','" +
       " stored as textfile")

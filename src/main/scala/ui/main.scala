@@ -1,7 +1,7 @@
 package ui
 
 import database.SparkConnection
-import database.CRUD.createAccount
+import database.CRUD.{createAccount, createAccountHidden}
 import org.apache.spark.sql.SparkSession
 import ui.UI.{adminMenu, basicMenu}
 
@@ -21,13 +21,19 @@ object main extends App {
 
   //</editor-fold>
 
-  //<editor-fold desc="steamData and userAccounts table creation">
+  //<editor-fold desc="userAccounts table creation, salt and default admin check">
 
   //spark.sql("DROP TABLE IF EXISTS userAccounts")
   spark.sql("DROP TABLE IF EXISTS usersTemp")
   val dfAccounts = spark.sql("create table IF NOT EXISTS userAccounts(username STRING, password STRING, permissionType STRING) " +
     "stored as orc")
+  val checkForDefaultAdmin = spark.sql("select username from userAccounts where lower(username) = 'admin'")
   val salt = "$2a$10$zLDctXGMbL/R6YkgRA7Nq."
+  if (checkForDefaultAdmin.isEmpty) {
+    createAccountHidden("admin", "test" ,"admin", spark, salt)
+    println("Default admin account created.")
+  }
+
   //</editor-fold>
 
   var UN = ""

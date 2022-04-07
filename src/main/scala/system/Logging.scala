@@ -69,14 +69,14 @@ class Logging{
   //trello 8
   //jaceguai 4/04/2022 11:33 EST
   def createSysLog():Unit={
-    println("Droping table syslog....")
-    spark.sql("drop table if exists syslog")
-    println("Creating table syslog....")
+    //println("Droping table syslog....")
+    //spark.sql("drop table if exists syslog")
+    //println("Creating table syslog....")
     spark.sql("create table if not exists syslog(username string, classname string, date string," +
       "time string, timezone string, operation string)"+
       " row format delimited fields terminated by ','" +
       " stored as textfile")
-    spark.sql("describe syslog").show()
+    //spark.sql("describe syslog").show()
   }
 
 

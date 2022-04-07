@@ -1,0 +1,18 @@
+1. Make sure that any assembly code in your code is commented and to remove the % "provided" part at the end of each dependency.
+2. Under your "project" directory, create a new file called "assembly.sbt"
+3. addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.15.0")
+4. Rebuild your sbt.
+5. Add % "provided" to the end of each dependency EXCEPT bCrypt. provided is included only for libraries that spark sessions will have by default so there is no need to add them to the jar.
+6. Add this code after the dependencies:
+    assemblyMergeStrategy in assembly := {
+     case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+     case x => MergeStrategy.first
+   }
+7. Rebuilt your sbt again if the option pops up.
+8. To create an assembly jar, go to your sbt shell window at the bottom and start a session.
+   Enter: compile     after Enter:   assembly
+9. A jar file should have been created in your target/scala directory (sbt shell should tell you the absolute path). Make sure to shut down your sbt shell session.
+10. To run the jar file, open Ubuntu, cd to your jar file location. Run spark-submit --class <object/class name> <jar name>
+
+Ex. cd '/mnt/c/users/Jack/repos/Big-Data---Project-2/target/scala-2.12'
+    spark-submit --class ui.main Project2-assembly-0.1.0-SNAPSHOT.jar

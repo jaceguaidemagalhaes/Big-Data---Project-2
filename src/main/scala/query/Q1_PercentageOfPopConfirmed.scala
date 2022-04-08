@@ -68,7 +68,8 @@ object Q1_PercentageOfPopConfirmed extends App {
     .withColumn("Recovered", format_number(df_percentPopByCountry("Recovered"), 5))
     .withColumn("Deaths", format_number(df_percentPopByCountry("Deaths"), 5))
     percentPopByCountry.show()
-    percentPopByCountry.coalesce(1).write.mode(SaveMode.Overwrite).csv(workingPath+"results/percentPopByCountry")
+    percentPopByCountry.coalesce(1)
+      .write.mode(SaveMode.Overwrite).csv(workingPath+"results/q1_percentpopbycountry")
   }
 
 

@@ -60,9 +60,9 @@ object Q1_PercentageOfPopConfirmed extends App {
 
     val df_percentPopByCountry = df_popConf.select(col("Country"),
     col("Population").cast(IntegerType),
-    ((col("max(Confirmed)")/col("Population"))*100).alias("Confirmed"),
-    ((col("max(Recovered)")/col("Population"))*100).alias("Recovered"),
-    ((col("max(Deaths)")/col("Population"))*100).alias("Deaths"))
+    (col("max(Confirmed)")/col("Population")).alias("Confirmed"),
+    (col("max(Recovered)")/col("Population")).alias("Recovered"),
+    (col("max(Deaths)")/col("Population")).alias("Deaths"))
 
     val percentPopByCountry = df_percentPopByCountry.withColumn("Confirmed", format_number(df_percentPopByCountry("Confirmed"), 5))
     .withColumn("Recovered", format_number(df_percentPopByCountry("Recovered"), 5))

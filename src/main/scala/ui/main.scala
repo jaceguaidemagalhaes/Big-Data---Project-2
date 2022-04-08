@@ -1,20 +1,19 @@
 package ui
 
-import database.SparkConnection
 import database.CRUD.{createAccount, createAccountHidden}
+import database.SparkConnection
 import org.apache.spark.sql.SparkSession
-import ui.UI.{adminMenu, basicMenu}
+import system.Logging
+import UI.{adminMenu, basicMenu}
 
 import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn
 import scala.util.control.Breaks.breakable
-import com.github.t3hnar.bcrypt._
-import system.Logging
 
 object main extends App {
 
   //<editor-fold desc="Spark Session = spark">
-  
+
   val spark = SparkConnection.sparkConnect()
   spark.sql("set hive.exec.dynamic.partition=true")
   spark.sql("Set hive.exec.dynamic.partition.mode=nonstrict")
@@ -31,7 +30,7 @@ object main extends App {
   val checkForDefaultAdmin = spark.sql("select username from userAccounts where lower(username) = 'admin'")
   val salt = "$2a$10$zLDctXGMbL/R6YkgRA7Nq."
   if (checkForDefaultAdmin.isEmpty) {
-    createAccountHidden("admin", "test" ,"admin", spark, salt)
+    createAccountHidden("admin", "test", "admin", spark, salt)
     println("Default admin account created.")
   }
 
@@ -75,16 +74,16 @@ object main extends App {
   lazy val qMenu =
     s"""
        |Please choose an option:
-       |1. What are the top 10 countries with greatest amount of deaths?
-       |2. What is the percentage of population confirmed, dead, and recovered?
+       |1. What is the percentage of population confirmed, dead, and recovered?
+       |2. What are the top 10 countries with greatest amount of deaths?
        |3. Cumulative average confirmed, deaths, and recovers
-       |4. When was the peak of mortality rate of the pandemic?
-       |5. What are the correlation between deaths and population?
-       |6. What is the average recovered rate by countries?
-       |7. Confirmed by day, country, and states (when applicable)
+       |4. What is the average recovered rate by countries?
+       |5. Confirmed spread speed for determined time and country
+       |6. Death spread speed for determined time and country
+       |7. When was the peak of mortality rate of the pandemic?
        |8. Total confirmed, death, and recover
-       |9. Confirmed spread speed for determined time and country
-       |10. Death spread speed for determined time and country
+       |9. What are the correlation between deaths and population?
+       |10. Confirmed by day, country, and states (when applicable)
        |11. Exit
        |""".stripMargin //query menu options, change this and query menu function in UI.scala when actual queries are made
   lazy val mMenu =
@@ -129,7 +128,7 @@ object main extends App {
     //log user login
     //jaceguai 4/05/2022
     val logging = new Logging()
-    logging.insertLog("User logged",this.getClass.getSimpleName.toLowerCase())
+    logging.insertLog("User logged", this.getClass.getSimpleName.toLowerCase())
 
     val permission = spark.sql(s"select permissionType from userAccounts " +
       s"where lower(username) = '${UN.toLowerCase}' and password = '${PW.bcryptBounded(salt)}'")

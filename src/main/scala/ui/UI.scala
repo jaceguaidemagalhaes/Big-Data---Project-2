@@ -75,10 +75,10 @@ object UI extends App {
 //        case 3 => queryMortalityRate(spark)
         case 4 => queryHighestDeath(spark)
         case 5 =>
-        case 6 =>queryAvgRecoveredRate(spark)
+        case 6 => queryAvgRecoveredRate(spark)
         case 7 =>
         case 8 =>
-        case 9 =>queryConSpreadSpeed(spark)
+        case 9 => queryConSpreadSpeed(spark)
         case 10 => queryDeathSpreadSpeed(spark)
         case 11 => println("Exiting...")
         case _ => println("Invalid input!")

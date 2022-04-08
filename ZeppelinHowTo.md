@@ -21,7 +21,7 @@
 - zeppelin-daemon.sh start
 - zeppelin-daemon.sh stop
 #### Try starting it and going to http://localhost:8080/
-#### If it doesn't work, see Problem 1
+#### If it doesn't work, see Problem 1, 2
 
 ## Problem 1
 ### We have to set up some configuration files manually

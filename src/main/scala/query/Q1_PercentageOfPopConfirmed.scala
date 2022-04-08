@@ -12,26 +12,26 @@ import org.apache.spark.sql.functions.format_number
 
 import scala.reflect.io.File
 
-//object Q1_PercentageOfPopConfirmed extends App {
-class Q1_PercentageOfPopConfirmed{
+object Q1_PercentageOfPopConfirmed extends App {
+//class Q1_PercentageOfPopConfirmed{
   //query to have the percentage of population confirmed, recovered and death with covid
   // for each country
   //trello 17
   //jaceguai 4/06/2021 11:14PM Est
 
-//  System.setProperty("hadoop.home.dir", "/usr/local/Cellar/hadoop/3.3.2/libexec")
-//  println("Creating Spark session....")
-//  Logger.getLogger("org").setLevel(Level.ERROR)//remove messages
-//  val spark = SparkSession
-//    .builder
-//    .appName("Project2")
-//    .config("spark.master", "local")
-//    .enableHiveSupport()
-//    .getOrCreate()
-//  spark.sparkContext.setLogLevel("ERROR")//remove messages
-//  println("created spark session")
+  System.setProperty("hadoop.home.dir", "/usr/local/Cellar/hadoop/3.3.2/libexec")
+  println("Creating Spark session....")
+  Logger.getLogger("org").setLevel(Level.ERROR)//remove messages
+  val spark = SparkSession
+    .builder
+    .appName("Project2")
+    .config("spark.master", "local")
+    .enableHiveSupport()
+    .getOrCreate()
+  spark.sparkContext.setLogLevel("ERROR")//remove messages
+  println("created spark session")
 
-  //executeQuery(spark)
+  executeQuery(spark)
   //val spark = ui.main.spark
   //val sc = spark.sparkContext
   def executeQuery(spark: SparkSession):Unit={

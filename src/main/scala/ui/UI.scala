@@ -3,6 +3,7 @@ package ui
 import org.apache.spark.sql.SparkSession
 import ui.main.{aMenu, bMenu, mMenu, qMenu}
 import database.CRUD._
+import query._
 import system.Logging
 
 import scala.Console.println
@@ -57,14 +58,15 @@ object UI extends App {
 
   def queryMenu(menu: String, spark: SparkSession): Unit = {
     var input = 0
-    while (input != 7) {
+    while (input != 11) {
       println(menu)
       println("Query options are currently disabled until COVID queries are made.")
       input = StdIn.readInt()
       input match {
-        /*case 1 => queryHighestPeak(spark)
-        case 2 =>
-        case 3 => queryAvg(spark)
+        //case 1 => queryHighestPeak(spark)
+        //case 2 => {val q1_PercentageOfPopConfirmed = new Q1_PercentageOfPopConfirmed()
+          //          q1_PercentageOfPopConfirmed.executeQuery(spark)}
+        /*case 3 => queryAvg(spark)
         case 4 => queryHighestDeath(spark)
         case 5 =>
         case 6 => queryAverageRecoveredRate(spark)

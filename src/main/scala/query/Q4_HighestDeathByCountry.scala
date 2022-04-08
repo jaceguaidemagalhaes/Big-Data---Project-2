@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.IntegerType
 
-object Q2_HighestDeathByCountry extends App{
+object Q4_HighestDeathByCountry extends App{
   def queryHighestDeath(spark: SparkSession): Unit = {
     println("Top 10 countries with greatest amount of deaths:")
   val df = spark.read.format("csv").option("header", true).load(covid_19_data_clean).toDF()

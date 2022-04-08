@@ -7,7 +7,7 @@ import org.apache.spark.sql.functions._
 
 import scala.io.StdIn._
 
-object Q5_ConSpreadSpeed extends App{
+object Q9_ConSpreadSpeed extends App{
   def queryConSpreadSpeed(spark:SparkSession) {
     val df = spark.read.format("csv").options(Map("header" -> "true", "inferSchema" -> "true", "delimiter" -> ",")).load(covid_19_data_clean).toDF()
     println("Confirmed spread speed for determined time and country")

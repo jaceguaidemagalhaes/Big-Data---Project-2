@@ -5,7 +5,7 @@ import database.SparkConnection
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
-object Q3_AvgConfrimedDeathRecov extends App{
+object Q2_AvgConfrimedDeathRecov extends App{
   def queryAvgConDeathRecov(spark: SparkSession) {
     val df = spark.read.format("csv").option("header", true).load(covid_19_data_clean).toDF()
 

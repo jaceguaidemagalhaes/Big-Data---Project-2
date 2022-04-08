@@ -2,11 +2,12 @@ package ui
 
 import database.CRUD._
 import org.apache.spark.sql.SparkSession
-import query.Q2_HighestDeathByCountry.queryHighestDeath
-import query.Q3_AvgConfrimedDeathRecov.queryAvgConDeathRecov
-import query.Q4_AvgRecoveredRate.queryAvgRecoveredRate
-import query.Q5_ConSpreadSpeed.queryConSpreadSpeed
-import query.Q6_DeathSpreadSpeed.queryDeathSpreadSpeed
+import query.Q1_PercentageOfPopConfirmed.{executeQuery, spark}
+import query.Q4_HighestDeathByCountry.queryHighestDeath
+import query.Q2_AvgConfrimedDeathRecov.queryAvgConDeathRecov
+import query.Q6_AvgRecoveredRate.queryAvgRecoveredRate
+import query.Q9_ConSpreadSpeed.queryConSpreadSpeed
+import query.Q10_DeathSpreadSpeed.queryDeathSpreadSpeed
 import system.Logging
 import ui.main.{aMenu, bMenu, mMenu, qMenu}
 
@@ -69,16 +70,16 @@ object UI extends App {
       println("Query options are currently disabled until COVID queries are made.")
       input = StdIn.readInt()
       input match {
-        case 1 =>
-        case 2 => queryHighestDeath(spark)
-        case 3 => queryAvgConDeathRecov(spark)
-        case 4 => queryAvgRecoveredRate(spark)
-        case 5 => queryConSpreadSpeed(spark)
-        case 6 => queryDeathSpreadSpeed(spark)
+        case 1 => executeQuery(spark)
+        case 2 => queryAvgConDeathRecov(spark)
+//        case 3 => queryMortalityRate(spark)
+        case 4 => queryHighestDeath(spark)
+        case 5 =>
+        case 6 =>queryAvgRecoveredRate(spark)
         case 7 =>
         case 8 =>
-        case 9 =>
-        case 10 =>
+        case 9 =>queryConSpreadSpeed(spark)
+        case 10 => queryDeathSpreadSpeed(spark)
         case 11 => println("Exiting...")
         case _ => println("Invalid input!")
       }

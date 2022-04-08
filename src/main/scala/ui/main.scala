@@ -9,7 +9,7 @@ import UI.{adminMenu, basicMenu}
 import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn
 import scala.util.control.Breaks.breakable
-
+import com.github.t3hnar.bcrypt._
 object main extends App {
 
   //<editor-fold desc="Spark Session = spark">
@@ -75,15 +75,15 @@ object main extends App {
     s"""
        |Please choose an option:
        |1. What is the percentage of population confirmed, dead, and recovered?
-       |2. What are the top 10 countries with greatest amount of deaths?
-       |3. Cumulative average confirmed, deaths, and recovers
-       |4. What is the average recovered rate by countries?
-       |5. Confirmed spread speed for determined time and country
-       |6. Death spread speed for determined time and country
-       |7. When was the peak of mortality rate of the pandemic?
+       |2. Cumulative average confirmed, deaths, and recovers
+       |3. When was the peak of mortality rate of the pandemic?
+       |4. What are the top 10 countries with greatest amount of deaths?
+       |5. What are the correlation between deaths and population?
+       |6. What is the average recovered rate by countries?
+       |7. Confirmed by day, country, and states (when applicable)
        |8. Total confirmed, death, and recover
-       |9. What are the correlation between deaths and population?
-       |10. Confirmed by day, country, and states (when applicable)
+       |9. Confirmed spread speed for determined time and country
+       |10. Death spread speed for determined time and country
        |11. Exit
        |""".stripMargin //query menu options, change this and query menu function in UI.scala when actual queries are made
   lazy val mMenu =

@@ -5,7 +5,7 @@ import database.SparkConnection
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
-object Q4_AvgRecoveredRate extends App{
+object Q6_AvgRecoveredRate extends App{
   def queryAvgRecoveredRate(spark: SparkSession) {
     val df = spark.read.format("csv").options(Map("header" -> "true", "inferSchema" -> "true", "delimiter" -> ",")).load(covid_19_data_clean).toDF()
     println("What is the average recovered rate(per day) by countries?")

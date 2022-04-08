@@ -2,7 +2,7 @@ package database
 
 object Resources {
   // workingPath should be universal as long as "resources" folder is in main
-  val workingPath = "src/main/resources/"
+  val workingPath = "maindb/resources/"
 
   // Original, unedited data
     // SNo, ObservationDate, Province/State, Country/Region, Last Update, Confirmed, Deaths, Recovered

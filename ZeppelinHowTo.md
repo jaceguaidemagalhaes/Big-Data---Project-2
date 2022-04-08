@@ -1,5 +1,4 @@
 # Zeppelin
-# ___________________________________________________________________________
 #### Reminder to do this when starting Ubuntu:
 - sudo service ssh restart
 
@@ -24,7 +23,6 @@
 #### Try starting it and going to http://localhost:8080/
 #### If it doesn't work, see Problem 1
 
-# ___________________________________________________________________________
 ## Problem 1
 ### We have to set up some configuration files manually
 
@@ -43,7 +41,6 @@
 #### Uncomment admin user if you want that
 - :wq
 
-# ___________________________________________________________________________
 ## Problem 2
 ### Because we already set up Spark to use 8080, I was having trouble using Zeppelin on 8080 (Change to port 8090)
 #### !! Make sure daemon is stopped before doing this (zeppelin-daemon.sh stop)
@@ -52,7 +49,7 @@
 - vim ~/zeppelin-0.10.1-bin-all/conf/zeppelin-site.xml
 #### At line 30, change from port 8080 to 8090 (Right below: zeppelin.server.port)	
 - :wq
-#### allow ssh to port 8090 (you will get connection refused if you don't) 
+#### Allow ssh - port 8090 (you will get connection refused if you don't) 
 #### !! Make sure to change to your username and @
 - zeppelin-daemon.sh start
 - ssh -L 8090:localhost:8090 username@DESKTOP-ABC123U
@@ -60,7 +57,6 @@
 ### Use browser to navigate here:
 - http://localhost:8090/	
 
-# ___________________________________________________________________________
 ## Problem 3
 ### "channel 2: open failed: connect failed: Connection refused"
 #### I got this when stopping zeppelin-daemon

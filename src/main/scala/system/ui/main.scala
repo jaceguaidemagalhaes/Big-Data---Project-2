@@ -1,9 +1,9 @@
-package ui
+package system.ui
 
 import database.SparkConnection
 import database.CRUD.{createAccount, createAccountHidden}
 import org.apache.spark.sql.SparkSession
-import ui.UI.{adminMenu, basicMenu}
+import UI.{adminMenu, basicMenu}
 
 import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn

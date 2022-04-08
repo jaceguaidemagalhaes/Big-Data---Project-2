@@ -61,4 +61,5 @@
 ### "channel 2: open failed: connect failed: Connection refused"
 #### I got this when stopping zeppelin-daemon
 #### Just restart ssh
+- Ctrl + C
 - sudo service ssh restart

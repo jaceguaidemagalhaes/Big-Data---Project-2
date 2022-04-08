@@ -1,20 +1,19 @@
-package system.ui
+package ui
 
-import database.SparkConnection
 import database.CRUD.{createAccount, createAccountHidden}
+import database.SparkConnection
 import org.apache.spark.sql.SparkSession
+import system.Logging
 import UI.{adminMenu, basicMenu}
 
 import scala.Console.{BOLD, RESET, println}
 import scala.io.StdIn
 import scala.util.control.Breaks.breakable
-import com.github.t3hnar.bcrypt._
-import system.Logging
 
 object main extends App {
 
   //<editor-fold desc="Spark Session = spark">
-  
+
   val spark = SparkConnection.sparkConnect()
   spark.sql("set hive.exec.dynamic.partition=true")
   spark.sql("Set hive.exec.dynamic.partition.mode=nonstrict")
@@ -31,7 +30,7 @@ object main extends App {
   val checkForDefaultAdmin = spark.sql("select username from userAccounts where lower(username) = 'admin'")
   val salt = "$2a$10$zLDctXGMbL/R6YkgRA7Nq."
   if (checkForDefaultAdmin.isEmpty) {
-    createAccountHidden("admin", "test" ,"admin", spark, salt)
+    createAccountHidden("admin", "test", "admin", spark, salt)
     println("Default admin account created.")
   }
 
@@ -129,7 +128,7 @@ object main extends App {
     //log user login
     //jaceguai 4/05/2022
     val logging = new Logging()
-    logging.insertLog("User logged",this.getClass.getSimpleName.toLowerCase())
+    logging.insertLog("User logged", this.getClass.getSimpleName.toLowerCase())
 
     val permission = spark.sql(s"select permissionType from userAccounts " +
       s"where lower(username) = '${UN.toLowerCase}' and password = '${PW.bcryptBounded(salt)}'")

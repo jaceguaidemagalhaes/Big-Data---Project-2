@@ -1,6 +1,7 @@
 package system
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
+import ui.main
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -18,7 +19,7 @@ class Logging{
   // Jaceguai 05/01/2022 3:13 EST
 
   //val user = "test log" // user variable to test reasons comment for test.
-  val user = ui.main.UN// uncomment for production
+  val user = main.UN// uncomment for production
   var sysDate = ""
   var sysTime = ""
   var sysTimeZone = ""
@@ -42,7 +43,7 @@ class Logging{
   //trelo 8
   //jaceguai 4/05/2022 4:01 Est
 
-  val spark = ui.main.spark
+  val spark = main.spark
   val sc = spark.sparkContext
   import spark.implicits._
 

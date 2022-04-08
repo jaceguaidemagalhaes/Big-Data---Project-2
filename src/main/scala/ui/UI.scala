@@ -1,15 +1,14 @@
-package system.ui
+package ui
 
-import org.apache.spark.sql.SparkSession
-import main.{aMenu, bMenu, mMenu, qMenu}
 import database.CRUD._
+import org.apache.spark.sql.SparkSession
 import query.Q2_HighestDeathByCountry.queryHighestDeath
 import query.Q3_AvgConfrimedDeathRecov.queryAvgConDeathRecov
 import query.Q4_AvgRecoveredRate.queryAvgRecoveredRate
 import query.Q5_ConSpreadSpeed.queryConSpreadSpeed
 import query.Q6_DeathSpreadSpeed.queryDeathSpreadSpeed
-import query._
 import system.Logging
+import ui.main.{aMenu, bMenu, mMenu, qMenu}
 
 import scala.Console.println
 import scala.io.StdIn
@@ -35,8 +34,10 @@ object UI extends App {
           case 3 => updateUserName(UN, permission, spark, salt); println("Logging out to update username in session..."); break()
           case 4 => updatePassword(UN, permission, spark, salt)
           case 5 => println("Logging out...")
-          case 6 => {val logging = new Logging()
-                      logging.listLog()}
+          case 6 => {
+            val logging = new Logging()
+            logging.listLog()
+          }
           case _ => println("Invalid input!")
         }
       }

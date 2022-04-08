@@ -69,16 +69,16 @@ object UI extends App {
       println("Query options are currently disabled until COVID queries are made.")
       input = StdIn.readInt()
       input match {
-        case 1 => queryHighestDeath(spark)
-        case 2 =>
+        case 1 =>
+        case 2 => queryHighestDeath(spark)
         case 3 => queryAvgConDeathRecov(spark)
-        case 4 =>
-        case 5 =>
-        case 6 => queryAvgRecoveredRate(spark)
+        case 4 => queryAvgRecoveredRate(spark)
+        case 5 => queryConSpreadSpeed(spark)
+        case 6 => queryDeathSpreadSpeed(spark)
         case 7 =>
         case 8 =>
-        case 9 => queryConSpreadSpeed(spark)
-        case 10 => queryDeathSpreadSpeed(spark)
+        case 9 =>
+        case 10 =>
         case 11 => println("Exiting...")
         case _ => println("Invalid input!")
       }

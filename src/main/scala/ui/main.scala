@@ -74,16 +74,16 @@ object main extends App {
   lazy val qMenu =
     s"""
        |Please choose an option:
-       |1. What are the top 10 countries with greatest amount of deaths?
-       |2. What is the percentage of population confirmed, dead, and recovered?
+       |1. What is the percentage of population confirmed, dead, and recovered?
+       |2. What are the top 10 countries with greatest amount of deaths?
        |3. Cumulative average confirmed, deaths, and recovers
-       |4. When was the peak of mortality rate of the pandemic?
-       |5. What are the correlation between deaths and population?
-       |6. What is the average recovered rate by countries?
-       |7. Confirmed by day, country, and states (when applicable)
+       |4. What is the average recovered rate by countries?
+       |5. Confirmed spread speed for determined time and country
+       |6. Death spread speed for determined time and country
+       |7. When was the peak of mortality rate of the pandemic?
        |8. Total confirmed, death, and recover
-       |9. Confirmed spread speed for determined time and country
-       |10. Death spread speed for determined time and country
+       |9. What are the correlation between deaths and population?
+       |10. Confirmed by day, country, and states (when applicable)
        |11. Exit
        |""".stripMargin //query menu options, change this and query menu function in UI.scala when actual queries are made
   lazy val mMenu =

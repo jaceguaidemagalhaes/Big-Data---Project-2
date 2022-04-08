@@ -76,7 +76,7 @@ object main extends App {
     s"""
        |Please choose an option:
        |1. What are the top 10 countries with greatest amount of deaths?
-       |2. Select percentage of population confirmed, dead, and recovered
+       |2. What is the percentage of population confirmed, dead, and recovered?
        |3. Cumulative average confirmed, deaths, and recovers
        |4. When was the peak of mortality rate of the pandemic?
        |5. What are the correlation between deaths and population?

@@ -6,7 +6,8 @@ metastore_db/
 user/
 input/
 spark-warehouse/
-
+.DS_Store
+._SUCCESS.crc
 *.idea/
 *.bsp
 *.tmp

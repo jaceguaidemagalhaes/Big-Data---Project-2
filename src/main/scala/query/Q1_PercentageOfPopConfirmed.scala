@@ -11,30 +11,31 @@ import org.apache.spark.sql.functions.format_number
 
 import scala.reflect.io.File
 
-object Q1_PercentageOfPopConfirmed extends App {
-//class Q1_PercentageOfPopConfirmed{
+//object Q1_PercentageOfPopConfirmed extends App {
+class Q1_PercentageOfPopConfirmed{
   //query to have the percentage of population confirmed, recovered and death with covid
   // for each country
   //trello 17
   //jaceguai 4/06/2021 11:14PM Est
 
-  System.setProperty("hadoop.home.dir", "/usr/local/Cellar/hadoop/3.3.2/libexec")
-  println("Creating Spark session....")
-  Logger.getLogger("org").setLevel(Level.ERROR)//remove messages
-  val spark = SparkSession
-    .builder
-    .appName("Project2")
-    .config("spark.master", "local")
-    .enableHiveSupport()
-    .getOrCreate()
-  spark.sparkContext.setLogLevel("ERROR")//remove messages
-  println("created spark session")
-
-  executeQuery(spark)
+//  System.setProperty("hadoop.home.dir", "/usr/local/Cellar/hadoop/3.3.2/libexec")
+//  println("Creating Spark session....")
+//  Logger.getLogger("org").setLevel(Level.ERROR)//remove messages
+//  val spark = SparkSession
+//    .builder
+//    .appName("Project2")
+//    .config("spark.master", "local")
+//    .enableHiveSupport()
+//    .getOrCreate()
+//  spark.sparkContext.setLogLevel("ERROR")//remove messages
+//  println("created spark session")
+//
+//  executeQuery(spark)
   //val spark = ui.main.spark
   //val sc = spark.sparkContext
   def executeQuery(spark: SparkSession):Unit={
     //read covid data from csv file
+  println("Reading file....")
     val covid_19_data = spark.read.format("csv").option("header", true).load(covid_19_data_clean).toDF()
     //read populatin by country for year 2020 and 2021. We will filter only to 2021 ahead
     val dftotalPopByCountry = spark.read.format("csv").option("header", false).load(totalPopByCountry).toDF("Country", "Population", "Year")
@@ -63,6 +64,7 @@ object Q1_PercentageOfPopConfirmed extends App {
     (col("max(Recovered)")/col("Population")).alias("Recovered"),
     (col("max(Deaths)")/col("Population")).alias("Deaths"))
 
+    println("Generating result file....")
     val percentPopByCountry = df_percentPopByCountry.withColumn("Confirmed", format_number(df_percentPopByCountry("Confirmed"), 5))
     .withColumn("Recovered", format_number(df_percentPopByCountry("Recovered"), 5))
     .withColumn("Deaths", format_number(df_percentPopByCountry("Deaths"), 5))

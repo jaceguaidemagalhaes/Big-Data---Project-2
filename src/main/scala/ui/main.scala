@@ -78,7 +78,7 @@ object main extends App {
        |2. Cumulative average confirmed, deaths, and recovers
        |3. When was the peak of mortality rate of the pandemic?
        |4. What are the top 10 countries with greatest amount of deaths?
-       |5. What are the correlation between deaths and population?
+       |5. What is the general disease evolution for all Countries?
        |6. What is the average recovered rate by countries?
        |7. Confirmed by day, country, and states (when applicable)
        |8. Total confirmed, death, and recover

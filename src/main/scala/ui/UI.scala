@@ -2,14 +2,15 @@ package ui
 
 import database.CRUD._
 import org.apache.spark.sql.SparkSession
-import query.Q1_PercentageOfPopConfirmed.{executeQuery, spark}
 import query.Q4_HighestDeathByCountry.queryHighestDeath
 import query.Q2_AvgConfrimedDeathRecov.queryAvgConDeathRecov
 import query.Q6_AvgRecoveredRate.queryAvgRecoveredRate
 import query.Q9_ConSpreadSpeed.queryConSpreadSpeed
 import query.Q10_DeathSpreadSpeed.queryDeathSpreadSpeed
+import query.Q1_PercentageOfPopConfirmed
 import system.Logging
 import ui.main.{aMenu, bMenu, mMenu, qMenu}
+import query._
 
 import scala.Console.println
 import scala.io.StdIn
@@ -70,11 +71,13 @@ object UI extends App {
       println("Query options are currently disabled until COVID queries are made.")
       input = StdIn.readInt()
       input match {
-        case 1 => executeQuery(spark)
+        case 1 => {val q1_PercentageOfPopConfirmed = new Q1_PercentageOfPopConfirmed()
+                  q1_PercentageOfPopConfirmed.executeQuery(spark)}
         case 2 => queryAvgConDeathRecov(spark)
 //        case 3 => queryMortalityRate(spark)
         case 4 => queryHighestDeath(spark)
-        case 5 =>
+        case 5 => {val q5_GeneralDiseaseEvolution = new Q5_GeneralDiseaseEvolution()
+                  q5_GeneralDiseaseEvolution.executeQuery(spark)}
         case 6 => queryAvgRecoveredRate(spark)
         case 7 =>
         case 8 =>

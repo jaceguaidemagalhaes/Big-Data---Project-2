@@ -5,6 +5,8 @@ import org.apache.spark.sql.SparkSession
 import query.Q4_HighestDeathByCountry.queryHighestDeath
 import query.Q2_AvgConfrimedDeathRecov.queryAvgConDeathRecov
 import query.Q6_AvgRecoveredRate.queryAvgRecoveredRate
+import query.Q7_ConfirmedByDay.queryConfirmedByDay
+import query.Q8_Total_CDR.queryTotalCDR
 import query.Q9_ConSpreadSpeed.queryConSpreadSpeed
 import query.Q10_DeathSpreadSpeed.queryDeathSpreadSpeed
 import query.Q1_PercentageOfPopConfirmed
@@ -79,8 +81,8 @@ object UI extends App {
         case 5 => {val q5_GeneralDiseaseEvolution = new Q5_GeneralDiseaseEvolution()
                   q5_GeneralDiseaseEvolution.executeQuery(spark)}
         case 6 => queryAvgRecoveredRate(spark)
-        case 7 =>
-        case 8 =>
+        case 7 => queryConfirmedByDay(spark)
+        case 8 => queryTotalCDR(spark)
         case 9 => queryConSpreadSpeed(spark)
         case 10 => queryDeathSpreadSpeed(spark)
         case 11 => println("Exiting...")

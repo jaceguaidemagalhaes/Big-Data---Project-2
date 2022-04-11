@@ -26,7 +26,7 @@ object Q8_Total_CDR extends App {
     dfTotalCDR.coalesce(1).write
       .mode(SaveMode.Overwrite)
       .option("header", true)
-      .csv(workingPath+"results/q7_TotalCDR")
+      .csv(workingPath+"results/q8_TotalCDR")
 
     readLine("Enter anything to continue: ")
 

@@ -3,6 +3,7 @@
 - sudo service ssh restart
 
 ## Download and unzip Zeppelin
+#### Check https://zeppelin.apache.org/download.html for latest version
 - wget https://dlcdn.apache.org/zeppelin/zeppelin-0.10.1/zeppelin-0.10.1-bin-all.tgz
 - tar --extract -f zeppelin-0.10.1-bin-all.tgz
 

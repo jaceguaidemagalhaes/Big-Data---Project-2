@@ -10,6 +10,9 @@ import query.Q8_Total_CDR.queryTotalCDR
 import query.Q9_ConSpreadSpeed.queryConSpreadSpeed
 import query.Q10_DeathSpreadSpeed.queryDeathSpreadSpeed
 import query.Q1_PercentageOfPopConfirmed
+import query.Q3_PeakOfDeaths.queryMortalityRate
+import query.Q7_ConfirmedByDay.queryConfirmedByDay
+import query.Q8_Total_CDR.queryTotalCDR
 import system.Logging
 import ui.main.{aMenu, bMenu, mMenu, qMenu}
 import query._
@@ -70,13 +73,13 @@ object UI extends App {
     var input = 0
     while (input != 11) {
       println(menu)
-      println("Query options are currently disabled until COVID queries are made.")
+      println("Select a query from the following options:")
       input = StdIn.readInt()
       input match {
         case 1 => {val q1_PercentageOfPopConfirmed = new Q1_PercentageOfPopConfirmed()
                   q1_PercentageOfPopConfirmed.executeQuery(spark)}
         case 2 => queryAvgConDeathRecov(spark)
-//        case 3 => queryMortalityRate(spark)
+        case 3 => queryMortalityRate(spark)
         case 4 => queryHighestDeath(spark)
         case 5 => {val q5_GeneralDiseaseEvolution = new Q5_GeneralDiseaseEvolution()
                   q5_GeneralDiseaseEvolution.executeQuery(spark)}

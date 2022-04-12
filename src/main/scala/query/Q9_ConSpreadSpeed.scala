@@ -1,8 +1,8 @@
 package query
 
-import database.Resources.covid_19_data_clean
+import database.Resources.{covid_19_data_clean, workingPath}
 import database.SparkConnection
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.functions._
 
 import scala.io.StdIn._
@@ -20,6 +20,11 @@ object Q9_ConSpreadSpeed extends App{
       .agg(max("Confirmed").as("Total_Confrimed"),
         round(max("Confirmed") / countDistinct("ObservationDate"), 2).as("Average_Confirmed_per_day"))
       .show
+
+    df.coalesce(1).write
+        .mode(SaveMode.Overwrite)
+        .option("header", true)
+        .csv(workingPath+"results/q9_ConSpreadSpeed")
   }
   val spark = SparkConnection.sparkConnect()
   queryConSpreadSpeed(spark)

@@ -1,8 +1,8 @@
 package query
 
-import database.Resources.covid_19_data_clean
+import database.Resources.{covid_19_data_clean, workingPath}
 import database.SparkConnection
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.functions._
 
 object Q6_AvgRecoveredRate extends App{
@@ -15,5 +15,10 @@ object Q6_AvgRecoveredRate extends App{
       .agg(round(max("Recovered") / countDistinct("ObservationDate")).as("Avg_Recovered_Rate"))
       .sort(desc("Avg_Recovered_Rate"))
       .show(10, false)
+
+    df.coalesce(1).write
+        .mode(SaveMode.Overwrite)
+        .option("header", true)
+        .csv(workingPath+"results/q6_AvgRecoveredRate")
   }
 }

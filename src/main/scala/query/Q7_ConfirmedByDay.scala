@@ -2,7 +2,8 @@ package query
 
 import database.Resources._
 import database.SparkConnection
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
+
 import scala.io.StdIn.readLine
 
 object Q7_ConfirmedByDay extends App {
@@ -20,5 +21,10 @@ object Q7_ConfirmedByDay extends App {
     Thread.sleep(500)
     readLine("Enter anything to continue: ")
     Thread.sleep(1000)
+
+    df_confirmed.coalesce(1).write
+        .mode(SaveMode.Overwrite)
+        .option("header", true)
+        .csv(workingPath+"results/q7_ConfirmedByDay")
   }
 }

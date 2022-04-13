@@ -1,0 +1,273 @@
+Country/Region,Avg_Recovered_Rate
+US,14413.0
+Turkey,10719.0
+India,8563.0
+Argentina,6282.0
+Brazil,5979.0
+Poland,5932.0
+Iran,4529.0
+Mexico,4338.0
+Peru,4133.0
+Czech Republic,3634.0
+Indonesia,3585.0
+South Africa,3556.0
+Romania,2304.0
+Iraq,2200.0
+Russia,2172.0
+Philippines,2100.0
+Israel,1901.0
+Portugal,1866.0
+Colombia,1735.0
+Bangladesh,1633.0
+Jordan,1616.0
+Italy,1578.0
+Germany,1431.0
+Austria,1362.0
+Hungary,1232.0
+Morocco,1167.0
+Chile,1109.0
+United Arab Emirates,1096.0
+Lebanon,1063.0
+Saudi Arabia,943.0
+Canada,942.0
+Panama,847.0
+Malaysia,824.0
+Belarus,818.0
+Bulgaria,809.0
+Kazakhstan,798.0
+Ecuador,770.0
+Switzerland,733.0
+Croatia,727.0
+Azerbaijan,686.0
+West Bank and Gaza,683.0
+Georgia,678.0
+France,661.0
+Tunisia,618.0
+Pakistan,614.0
+Nepal,612.0
+Bolivia,605.0
+Slovakia,604.0
+Kuwait,599.0
+Moldova,572.0
+Denmark,558.0
+Paraguay,555.0
+Slovenia,537.0
+Dominican Republic,533.0
+Lithuania,523.0
+Guatemala,495.0
+Ethiopia,482.0
+Costa Rica,480.0
+Armenia,467.0
+Qatar,449.0
+Venezuela,434.0
+Uruguay,419.0
+Oman,407.0
+Libya,404.0
+Egypt,388.0
+Bahrain,387.0
+Bosnia and Herzegovina,376.0
+Nigeria,361.0
+Spain,329.0
+Burma,328.0
+North Macedonia,309.0
+Ukraine,292.0
+Japan,281.0
+Albania,264.0
+Kenya,262.0
+Estonia,260.0
+Latvia,255.0
+Cuba,245.0
+South Korea,243.0
+Montenegro,228.0
+Kosovo,222.0
+Zambia,219.0
+Kyrgyzstan,218.0
+Greece,217.0
+Ghana,217.0
+Sri Lanka,212.0
+Uzbekistan,212.0
+Algeria,197.0
+Honduras,189.0
+Mozambique,164.0
+El Salvador,158.0
+Luxembourg,148.0
+Mainland China,138.0
+Singapore,130.0
+Afghanistan,123.0
+Botswana,113.0
+Namibia,111.0
+Ivory Coast,109.0
+Uganda,102.0
+Finland,100.0
+Cyprus,93.0
+Senegal,92.0
+Zimbabwe,87.0
+Cameroon,83.0
+Malawi,81.0
+Madagascar,80.0
+Malta,70.0
+Belgium,69.0
+Sudan,64.0
+Congo (Kinshasa),63.0
+Maldives,60.0
+Angola,58.0
+Thailand,58.0
+Rwanda,56.0
+Mongolia,55.0
+Ireland,54.0
+Cabo Verde,51.0
+Jamaica,51.0
+Guinea,48.0
+Gabon,47.0
+Mauritania,43.0
+Eswatini,43.0
+Norway,42.0
+Syria,42.0
+Australia,42.0
+Serbia,37.0
+Tajikistan,36.0
+Burkina Faso,31.0
+Andorra,30.0
+Belize,30.0
+Haiti,30.0
+Guyana,27.0
+Togo,27.0
+Netherlands,27.0
+Djibouti,26.0
+South Sudan,26.0
+Hong Kong,25.0
+Bahamas,23.0
+Suriname,23.0
+Papua New Guinea,23.0
+Mali,22.0
+Trinidad and Tobago,21.0
+Congo (Brazzaville),20.0
+Equatorial Guinea,18.0
+Lesotho,18.0
+Benin,18.0
+Iceland,15.0
+Somalia,14.0
+Gambia,13.0
+Cambodia,12.0
+Central African Republic,12.0
+Niger,12.0
+Others,12.0
+Seychelles,12.0
+Chad,11.0
+Sweden,11.0
+San Marino,11.0
+Saint Lucia,11.0
+Comoros,10.0
+Nicaragua,10.0
+Eritrea,9.0
+Barbados,9.0
+UK,9.0
+Sierra Leone,8.0
+Guinea-Bissau,8.0
+Yemen,7.0
+Liechtenstein,7.0
+Sao Tome and Principe,6.0
+Monaco,6.0
+New Zealand,6.0
+Liberia,5.0
+Vietnam,5.0
+Saint Vincent and the Grenadines,4.0
+Timor-Leste,3.0
+Mauritius,3.0
+Taiwan,2.0
+Burundi,2.0
+Bhutan,2.0
+Antigua and Barbuda,2.0
+Diamond Princess,2.0
+Brunei,1.0
+North Ireland,0.0
+Jersey,0.0
+NE (From Diamond Princess),0.0
+WA,0.0
+Fiji,0.0
+('St. Martin',0.0
+HI,0.0
+VT,0.0
+MO,0.0
+MS Zaandam,0.0
+Dominica,0.0
+occupied Palestinian territory,0.0
+NE,0.0
+Macau,0.0
+Reunion,0.0
+RI,0.0
+East Timor,0.0
+NH,0.0
+Guernsey,0.0
+The Gambia,0.0
+China,0.0
+Curacao,0.0
+Marshall Islands,0.0
+AZ,0.0
+Puerto Rico,0.0
+Martinique,0.0
+Cayman Islands,0.0
+TN,0.0
+MA,0.0
+NY,0.0
+MD,0.0
+IL,0.0
+FL,0.0
+KS,0.0
+Sint Eustatius and Saba,0.0
+LA,0.0
+TX (From Diamond Princess),0.0
+CA,0.0
+UT,0.0
+Guadeloupe,0.0
+TX,0.0
+SC,0.0
+Laos,0.0
+Cape Verde,0.0
+Saint Barthelemy,0.0
+Channel Islands,0.0
+Holy See,0.0
+Saint Kitts and Nevis,0.0
+Palestine,0.0
+Gibraltar,0.0
+OK,0.0
+NV,0.0
+Aruba,0.0
+IA,0.0
+CA (From Diamond Princess),0.0
+Azerbaijan,0.0
+The Bahamas,0.0
+OR,0.0
+Guam,0.0
+Republic of the Congo,0.0
+Grenada,0.0
+PA,0.0
+OR,0.0
+D.C.,0.0
+CT,0.0
+French Guiana,0.0
+Mayotte,0.0
+Ascension and Tristan da Cunha,0.0
+Samoa,0.0
+Faroe Islands,0.0
+Alberta,0.0
+NJ,0.0
+ON,0.0
+GA,0.0
+Tanzania,0.0
+Republic of Ireland,0.0
+MN,0.0
+Greenland,0.0
+St. Martin,0.0
+CO,0.0
+Solomon Islands,0.0
+U.S.,0.0
+VA,0.0
+Micronesia,0.0
+WI,0.0
+QC,0.0
+Vanuatu,0.0
+KY,0.0
+Vatican City,0.0
+IN,0.0
+NC,0.0

@@ -15,17 +15,16 @@ object Q9_ConSpreadSpeed extends App{
     val startDate = readLine("Start date. Earliest date recorded 2020-01-22 (yyyy-mm-dd): ")
     val endDate = readLine("End date. Most recent date recorded 2021-05-02 (yyyy-mm-dd): ")
 
-    df.where(df("Country/Region").contains(s"$country") && df("ObservationDate").between(startDate, endDate))
+   val conSpreadSpeed = df.where(df("Country/Region").contains(s"$country") && df("ObservationDate").between(startDate, endDate))
       .groupBy("Country/Region")
       .agg(max("Confirmed").as("Total_Confrimed"),
         round(max("Confirmed") / countDistinct("ObservationDate"), 2).as("Average_Confirmed_per_day"))
-      .show
+      conSpreadSpeed.show
 
-    df.coalesce(1).write
+    conSpreadSpeed.coalesce(1).write
         .mode(SaveMode.Overwrite)
         .option("header", true)
         .csv(workingPath+"results/q9_ConSpreadSpeed")
   }
-  val spark = SparkConnection.sparkConnect()
-  queryConSpreadSpeed(spark)
+
 }

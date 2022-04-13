@@ -60,7 +60,6 @@
 
 ## Problem 3
 ### "channel 2: open failed: connect failed: Connection refused"
-#### I got this when stopping zeppelin-daemon
-#### Just restart ssh
-- Ctrl + C
-- sudo service ssh restart
+#### I got this when stopping zeppelin-daemon while the browser is still open on localhost:8090
+#### This is because the host is still looking for the connection (zeppelin daemon)
+#### You can quickly remedy this by closing your browser tab(s) with your zeppelin localhost open

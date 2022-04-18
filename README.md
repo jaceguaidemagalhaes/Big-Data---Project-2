@@ -1,8 +1,4 @@
-# Big-Data-Project-2
-
-Covid-19 (Spark, Yarn, HDFS, SBT, Scala, Git, Tableau)
-
-This is a template, to be filled out by each group and placed in their git repo titled README.md
+# Project 2
 Requirements:
 - Create a Spark Application that processes COVID data
 - Your project 2 pitch should involve some analysis of COVID data. This is the central feature. 
@@ -34,5 +30,5 @@ Requirements:
 
 
 ### Due Date
-- Presentations will take place on Monday, 4/13
-- Send Project proposal with MVP clearly labeled with 2-3 stretch goals by end of week, 4/1
+- Presentations will take place on Wednesday, 4/13
+- Send Project proposal with MVP clearly labeled with 2-3 stretch goals by end of day, 4/4

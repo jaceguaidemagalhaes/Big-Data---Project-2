@@ -4,7 +4,11 @@ target/
 project/
 metastore_db/
 user/
-.idea/
+input/
+spark-warehouse/
+.DS_Store
+._SUCCESS.crc
+*.idea/
 *.bsp
 *.tmp
 

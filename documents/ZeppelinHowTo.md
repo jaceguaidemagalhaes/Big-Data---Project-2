@@ -10,6 +10,7 @@
 ## Add zeppelin home directory and path to .bashrc
 - vim ~/.bashrc
 #### Add these lines:
+#### !! Make sure you change user to your username (can also put ~/zeppelin...) !!
 - #Zeppelin home directory
 - export ZEPPELIN_HOME=/home/user/zeppelin-0.10.1-bin-all
 - export PATH=$PATH:$ZEPPELIN_HOME/bin
@@ -44,14 +45,14 @@
 
 ## Problem 2
 ### Because we already set up Spark to use 8080, I was having trouble using Zeppelin on 8080 (Change to port 8090)
-#### !! Make sure daemon is stopped before doing this (zeppelin-daemon.sh stop)
+#### !! Make sure daemon is stopped before doing this (zeppelin-daemon.sh stop) !!
 
 #### Change port here:
 - vim ~/zeppelin-0.10.1-bin-all/conf/zeppelin-site.xml
 #### At line 30, change from port 8080 to 8090 (Right below: zeppelin.server.port)	
 - :wq
 #### Allow ssh - port 8090 (you will get connection refused if you don't) 
-#### !! Make sure to change to your username and @
+#### !! Make sure to change to your username and @ !!
 - zeppelin-daemon.sh start
 - ssh -L 8090:localhost:8090 username@DESKTOP-ABC123U
 
